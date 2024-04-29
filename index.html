@@ -19,7 +19,7 @@
 
 <section>
     <!--FECHA: fecha que ingresa la novedad-->
-    <div id="dateDiv" class="container">
+    <div>
         <span class="spans">
             <h4>Fecha: </h4>
             <input type="date" id="date">
@@ -76,10 +76,9 @@
             <input type="text" placeholder="Nombre del responsable">
         </span>
     </div>
-    
 
     <div>
-        <h2>Listado de herramientas</h2>
+    <h2>Listado de herramientas</h2><br>
         <form action="procesar_formulario.php" method="post">
             <div id="contenedorDivs">
             <div>
@@ -90,17 +89,18 @@
                 <input type="text" id="marca" name="marca" required>
         
                 <label for="Color">Color:</label>
-                <input type="text" id="color" name="color" required>
+                <input type="text" id="color" name="color" required><br>
 
                 <label for="observaciones">Observaciones:</label><br>
                 <textarea id="observaciones" name="observaciones" rows="2" cols="50"></textarea>
             </div>
             </div>
-            <button onclick="agregarDiv()" id="button2">Agregar herramienta</button>
+            <button onclick="agregarDiv()" id="button2">Agregar herramientas</button>
         </form>
         </div>
         
     <!--FOTOS: Se debe aportar junto a la novedad fotos que representen la novedad informada-->
+   <!-- 
     <div id="fotosDiv">
         <h3>Fotos: </h3>
         <input type="file" accept="image/*" id="inputFoto" multiple onchange="mostrarFoto(event)">
@@ -110,7 +110,7 @@
     <div id="vistaPrevia2" class="fotoDiv" hidden></div>
     <div id="vistaPrevia3" class="fotoDiv" hidden></div>
     </div>
-
+    -->
     <div id="firmaDiv">
         <h3>Vigilador: </h3>
         <input type="text" id="firma" placeholder="Ingrese quien registra las herramientas">

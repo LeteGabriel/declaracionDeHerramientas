@@ -4,7 +4,6 @@ const barrio = document.getElementById('barrio');
 
 barrio.addEventListener("change", function () {
   const areaSS = document.getElementById('areaSS');
-
     if (barrio.value === "San Sebastian") {
       areaSS.style.display = "block";
     } else areaSS.style.display = "";
@@ -15,13 +14,15 @@ function descargarPDF() {
     const element = document.body;
     const botonDescargarPDF = document.getElementById("botonDescargarPDF");
     botonDescargarPDF.style.display = "none";
-    const inputFoto1 = document.getElementById("inputFoto");
+    const button2 = document.getElementById("button2");
+    button2.style.display = "none";
+   /* const inputFoto1 = document.getElementById("inputFoto");
     inputFoto1.style.display = "none";
     const inputFoto2 = document.getElementById("inputFoto2");
     inputFoto2.style.display = "none";
     const inputFoto3 = document.getElementById("inputFoto3");
     inputFoto3.style.display = "none";
-
+*/
     const barrioTit = document.getElementById('barrio');
     const loteTit = document.getElementById('lote');
     const fechaTit = document.getElementById('date');
@@ -31,7 +32,7 @@ function descargarPDF() {
       .save(barrioTit.value + " " + " L" + loteTit.value + " " + fechaTit.value + '.pdf');
   };
 
-
+/*
   function mostrarFoto(event) {
     var archivo = event.target.files[0];
     var vistaPrevia = document.getElementById("vistaPrevia");
@@ -69,6 +70,26 @@ function descargarPDF() {
     }
   }
 
+  function mostrarFoto3(event) {
+    var archivo = event.target.files[0];
+    var vistaPrevia3 = document.getElementById("vistaPrevia3");
+  
+    if (archivo) {
+      var lector = new FileReader();
+  
+      lector.onload = function(e) {
+        vistaPrevia3.style.display = "flex";
+        vistaPrevia3.innerHTML = '<img src="' + e.target.result + '">';
+      };
+  
+      lector.readAsDataURL(archivo);
+    } else {
+      vistaPrevia3.innerHTML = "No se seleccionó ninguna foto";
+    }
+  }
+
+*/
+
   function agregarDiv() {
     // Crear el nuevo div
     var nuevoDiv2 = document.createElement("div");
@@ -93,6 +114,8 @@ function descargarPDF() {
       var inputColor = document.createElement("input");
       inputColor.type = "text";
       
+      var br = document = document.createElement("br");
+
       var tituloObser = document.createElement("label");
       tituloObser.textContent = "Observaciones:";
       var textArea = document.createElement("textarea");
@@ -106,6 +129,7 @@ function descargarPDF() {
       nuevoDiv.appendChild(inputMarca);
       nuevoDiv.appendChild(tituloColor);
       nuevoDiv.appendChild(inputColor);
+      nuevoDiv.appendChild(br);
       nuevoDiv.appendChild(tituloObser);
       nuevoDiv.appendChild(textArea);
       
@@ -118,22 +142,6 @@ function descargarPDF() {
     contenedorDivs.appendChild(nuevoDiv);
   }
 
-  function mostrarFoto3(event) {
-    var archivo = event.target.files[0];
-    var vistaPrevia3 = document.getElementById("vistaPrevia3");
-  
-    if (archivo) {
-      var lector = new FileReader();
-  
-      lector.onload = function(e) {
-        vistaPrevia3.style.display = "flex";
-        vistaPrevia3.innerHTML = '<img src="' + e.target.result + '">';
-      };
-  
-      lector.readAsDataURL(archivo);
-    } else {
-      vistaPrevia3.innerHTML = "No se seleccionó ninguna foto";
-    }
-  }
+
 
 
