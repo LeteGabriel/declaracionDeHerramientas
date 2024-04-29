@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <title>Informe de novedad</title>
+</head>
+<body>
+
+<div id="contenido">
+    <div id="tit">
+        <img src="fidelis.png" alt="Logo de la empresa" id="Logo">
+        <h1>DECLARACION DE HERRAMIENTAS</h1>
+    </div>
+
+<section>
+    <!--FECHA: fecha que ingresa la novedad-->
+    <div id="dateDiv" class="container">
+        <span class="spans">
+            <h4>Fecha: </h4>
+            <input type="date" id="date">
+        </span>
+        
+    <!--HORA: hora que ingresa la novedad
+        <span class="spans">
+            <p>Hora del evento: </p>
+            <input type="time" id="time">
+        </span>    -->
+    
+    <!--Datos de la ubicacion Barrio Lote-->
+        <span class="spans">
+            <p>Nombre del barrio: </p>
+            <select id="barrio">
+                <option value="none">Elija un barrio</option>
+                <option value="San Sebastian">San Sebastian</option>
+                <option value="San Ramiro">San Ramiro</option>
+                <option value="San Ramon">San Ramon</option>
+                <option value="San Gabriel">San Gabriel</option>
+                <option value="San Rafael">San Rafael</option>
+                <option value="Altamira">Altamira</option>
+                <option value="Yoo">Yoo</option>
+                <option value="San Jose">San Jose</option>
+                <option value="El encuentro">El encuentro</option>
+                <option value="Santa Maria de Tigre">Santa Maria de Tigre</option>
+                <option value="San Matias">San Matias</option>
+                <option value="Cardano">Altos del encuentro</option>
+                <option value="Casas de Santa Maria">Casas de Santa Maria</option>
+                <option value="Casas de Santa Ana">Casas de Santa Ana</option>
+                <option value="Casas de San Patricio">Casas de San Patricio</option>
+                <option value="San Fermin">San Fermin</option>
+                <option value="Oliden Joven">Oliden Joven</option>
+            </select>    
+        </span>    
+
+        <div id="areaSS" hidden>
+            <select>
+                <option value="Area 1">Area 1</option>
+                <option value="Area 2">Area 2</option>
+                <option value="Area 5">Area 5</option>
+                <option value="Area 6">Area 6</option>
+                <option value="Area 7">Area 7</option>
+                <option value="Area 8">Area 8</option>
+            </select>
+        </div>
+
+        <span class="spans">
+            <p>N° de Lote: </p>
+            <input type="number" id="lote" placeholder="Ingrese numero de lote">    
+        </span>    
+        <span class="spans">
+            <p>Responsable de las herramientas:</p>
+            <input type="text" placeholder="Nombre del responsable">
+        </span>
+    </div>
+    
+
+    <div>
+        <h2>Listado de herramientas</h2>
+        <form action="procesar_formulario.php" method="post">
+            <div id="contenedorDivs">
+            <div>
+                <label for="tipo">Tipo:</label>
+                <input type="text" id="tipo" name="tipo" required>
+        
+                <label for="marca">Marca:</label>
+                <input type="text" id="marca" name="marca" required>
+        
+                <label for="Color">Color:</label>
+                <input type="text" id="color" name="color" required>
+
+                <label for="observaciones">Observaciones:</label><br>
+                <textarea id="observaciones" name="observaciones" rows="2" cols="50"></textarea>
+            </div>
+            </div>
+            <button onclick="agregarDiv()" id="button2">Agregar herramienta</button>
+        </form>
+        </div>
+        
+    <!--FOTOS: Se debe aportar junto a la novedad fotos que representen la novedad informada-->
+    <div id="fotosDiv">
+        <h3>Fotos: </h3>
+        <input type="file" accept="image/*" id="inputFoto" multiple onchange="mostrarFoto(event)">
+        <input type="file" accept="image/*" id="inputFoto2" multiple onchange="mostrarFoto2(event)">
+        <input type="file" accept="image/*" id="inputFoto3" multiple onchange="mostrarFoto3(event)">
+    <div id="vistaPrevia" class="fotoDiv" hidden></div>
+    <div id="vistaPrevia2" class="fotoDiv" hidden></div>
+    <div id="vistaPrevia3" class="fotoDiv" hidden></div>
+    </div>
+
+    <div id="firmaDiv">
+        <h3>Vigilador: </h3>
+        <input type="text" id="firma" placeholder="Ingrese quien registra las herramientas">
+    </div>    
+</section>
+</div>
+
+<div id="boton" class="container">
+    <button id="botonDescargarPDF" onclick="descargarPDF()">Descargar PDF</button>
+</div>
+
+<script src="main.js"></script>
+
+</body>
+</html>
